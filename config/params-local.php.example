@@ -3,7 +3,7 @@
 return [
 
     // 'api_baseurl' => 'http://localhost:1926',
-    'jwt_key' => 'Jrk6rEHUa7',
+    'jwt_key' => '',
     'client_token' => '',
     's3' => [
         'version' => 'latest',

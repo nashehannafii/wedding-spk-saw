@@ -44,6 +44,38 @@ class MenuHelper
         ];
 
         if (!Yii::$app->user->isGuest) {
+            $menuItems[] = ['label' => 'CLIENT AREA', 'header' => true];
+            $menuItems[] = [
+                'label' => 'Hitung ',
+                'icon' => 'bars',
+                'url' => ['rack-level'],
+                'badge' => '<span class="right badge badge-danger">New</span>'
+            ];
+            $menuItems[] = [
+                'label' => 'Bobot Item',
+                'icon' => 'bars',
+                'url' => ['rack-level'],
+                'badge' => '<span class="right badge badge-danger">New</span>'
+            ];
+        }
+
+        if (!Yii::$app->user->isGuest) {
+            $menuItems[] = ['label' => 'PAKET WEDDING', 'header' => true];
+            $menuItems[] = [
+                'label' => 'Daftar Paket',
+                'icon' => 'bars',
+                'url' => ['rack-level'],
+                'badge' => '<span class="right badge badge-danger">New</span>'
+            ];
+            $menuItems[] = [
+                'label' => 'Bobot Paket',
+                'icon' => 'th-list',
+                'url' => ['rack-level'],
+                'badge' => '<span class="right badge badge-danger">New</span>'
+            ];
+        }
+
+        if (!Yii::$app->user->isGuest) {
             $menuItems[] = ['label' => 'MASTER', 'header' => true];
             $menuItems[] = [
                 'label' => 'Auth Item',

@@ -14,7 +14,7 @@ use yii\helpers\Html;
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        
+
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-bell"></i>
@@ -46,9 +46,17 @@ use yii\helpers\Html;
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <?= Html::a('<i class="fas fa-sign-out-alt"></i>', ['/site/logout'], ['data-method' => 'post', 'class' => 'nav-link']) ?>
-        </li>
+
+        <?php if (Yii::$app->user->isGuest) : ?>
+            <li class="nav-item">
+                <?= Html::a('<i class="fas fa-sign-in-alt"></i>', ['/site/login'], ['class' => 'nav-link']) ?>
+            </li>
+        <?php endif; ?>
+        <?php if (!Yii::$app->user->isGuest) : ?>
+            <li class="nav-item">
+                <?= Html::a('<i class="fas fa-sign-out-alt"></i>', ['/site/logout'], ['data-method' => 'post', 'class' => 'nav-link']) ?>
+            </li>
+        <?php endif; ?>
     </ul>
 </nav>
 <!-- /.navbar -->

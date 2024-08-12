@@ -39,30 +39,36 @@ use yii\bootstrap4\Breadcrumbs;
 
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <?php
-                                if (!is_null($this->title)) {
-                                    echo \yii\helpers\Html::encode($this->title);
-                                } else {
-                                    echo \yii\helpers\Inflector::camelize($this->context->id);
-                                }
-                                ?>
-                            </h3>
-                        </div>
+            <?php if (Yii::$app->user->isGuest) : ?>
+                <?= $content ?>
+            <?php endif; ?>
+            <?php if (!Yii::$app->user->isGuest) : ?>
 
-                        <div class="card-body">
-                            <?= $content ?>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <?php
+                                    if (!is_null($this->title)) {
+                                        echo \yii\helpers\Html::encode($this->title);
+                                    } else {
+                                        echo \yii\helpers\Inflector::camelize($this->context->id);
+                                    }
+                                    ?>
+                                </h3>
+                            </div>
+
+                            <div class="card-body">
+                                <?= $content ?>
+                            </div>
+
                         </div>
 
                     </div>
 
                 </div>
-
-            </div>
+            <?php endif; ?>
         </div><!-- /.container-fluid -->
     </div>
 
